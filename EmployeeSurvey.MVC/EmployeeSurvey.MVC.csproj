@@ -181,6 +181,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EmployeeSurvey.Data\EmployeeSurvey.Data.csproj">
+      <Project>{124c8d35-712b-431b-9dd7-368f8c582e8e}</Project>
+      <Name>EmployeeSurvey.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EmployeeSurvey.Service\EmployeeSurvey.Service.csproj">
       <Project>{dd92b112-9ef3-497a-a26e-b9690ed3d1a6}</Project>
       <Name>EmployeeSurvey.Service</Name>
