@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace EmployeeSurvey.MVC.Controllers
 {
-    public class StatisticsController : Controller
+    public class StatisticsController : BaseController
     {
         // GET: Statistics
         public ActionResult Index()

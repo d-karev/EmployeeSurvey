@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - @Localization.TitleWebSite</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,12 +16,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "New", "Survey", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(Localization.TitleWebSite, "New", "Survey", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Take survey", "New", "Survey")</li>
-                    <li>@Html.ActionLink("See statistics", "Index", "Statistics")</li>
+                    <li>@Html.ActionLink(Localization.TitlePageSurveyNew, "New", "Survey")</li>
+                    <li>@Html.ActionLink(Localization.TitlePageStatisticsIndex, "Index", "Statistics")</li>
+                    <li>@Html.ActionLink(Localization.CultureEN, "ChangeCulture", new { Culture = "en-US" })</li>
+                    <li>@Html.ActionLink(Localization.CultureBG, "ChangeCulture", new { Culture = "bg-BG" })</li>
                 </ul>
             </div>
         </div>

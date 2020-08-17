@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace EmployeeSurvey.MVC.Controllers
 {
-    public class SurveyController : Controller
+    public class SurveyController : BaseController
     {
         // GET: Survey
         public ActionResult New()
