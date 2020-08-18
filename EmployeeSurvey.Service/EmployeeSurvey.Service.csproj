@@ -46,6 +46,7 @@
     <Compile Include="EmployeeSurveyService.cs" />
     <Compile Include="ProgrammingLanguageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmployeeSurvey.PersistentData\EmployeeSurvey.PersistentData.csproj">
