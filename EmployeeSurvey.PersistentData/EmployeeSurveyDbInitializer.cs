@@ -135,7 +135,13 @@ namespace EmployeeSurvey.PersistentData
             foreach (var employee in Employees)
                 foreach (var knownLang in employee.Survey.KnownLanguages)
                 {
-                    var randomId = random.Next(1, 13);
+                    int randomId;
+                    do
+                        randomId = random.Next(1, 13);
+                    while (employee.Survey.KnownLanguages.Any(p => 
+                        p.ProgrammingLanguage != null 
+                        && p.ProgrammingLanguage.Id == randomId));
+
                     var lang = context.ProgrammingLanguageSet.First(l => l.Id == randomId);
                     context.ProgrammingLanguageSet.Attach(lang);
                     knownLang.ProgrammingLanguage = lang;
