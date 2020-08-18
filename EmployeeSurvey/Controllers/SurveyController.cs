@@ -1,9 +1,5 @@
 ﻿using EmployeeSurvey.PresentationData.ViewModels;
 using EmployeeSurvey.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EmployeeSurvey.Controllers
@@ -24,7 +20,7 @@ namespace EmployeeSurvey.Controllers
             if (EmployeeSurveyService.IsNewEmployeeValid(model.Survey) == EmployeeSurveyService.EmployeeValidityCheckResult.Ok)
                 EmployeeSurveyService.PersistNewEmployeeSurvey(model.Survey);
 
-            return RedirectToAction("New");
+            return RedirectToAction("Index", "Statistics");
         }
     }
 }

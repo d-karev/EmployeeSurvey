@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ButtonSubmit" xml:space="preserve">
+    <value>Изпрати</value>
+  </data>
   <data name="EmployeeCurrentPosition" xml:space="preserve">
     <value>Текуща позиция</value>
   </data>
@@ -132,6 +135,12 @@
   <data name="EmployeeNameLast" xml:space="preserve">
     <value>Фамилия</value>
   </data>
+  <data name="LabelProgLanguagePanel" xml:space="preserve">
+    <value>Познания по езици за програмиране (изберете между 1 и 5)</value>
+  </data>
+  <data name="LabelSeniorityLevel" xml:space="preserve">
+    <value>Ниво на познание</value>
+  </data>
   <data name="SeniorityLevelDefault" xml:space="preserve">
     <value>Изберете ниво</value>
   </data>
@@ -139,9 +148,12 @@
     <value>Статистика</value>
   </data>
   <data name="TitlePageSurveyNew" xml:space="preserve">
-    <value>Ново въвеждане</value>
+    <value>Ново попълване</value>
   </data>
   <data name="TitleWebSite" xml:space="preserve">
     <value>Анкета за опит на служители</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>Моля въведете валидна стойност!</value>
   </data>
 </root>

@@ -1,10 +1,7 @@
 ﻿using EmployeeSurvey.PresentationData.Enums;
 using LocalizationResources;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace EmployeeSurvey.PresentationData.ViewModels
 {
@@ -23,22 +20,26 @@ namespace EmployeeSurvey.PresentationData.ViewModels
     public class EmployeeSurvey
     {
         [Required]
+        [StringLength(100)]
         [Display(Name = "EmployeeNameFirst", ResourceType = typeof(Localization))]
         public string NameFirst { get; set; }
 
         [Required]
+        [StringLength(100)]
         [Display(Name = "EmployeeNameLast", ResourceType = typeof(Localization))]
         public string NameLast { get; set; }
 
         [Required]
+        [StringLength(256)]
         [Display(Name = "EmployeeEmail", ResourceType = typeof(Localization))]
         public string Email { get; set; }
 
-        [Required]
+        [Range(0, 50, ErrorMessageResourceName ="ValidationError", ErrorMessageResourceType = typeof(Localization))]
         [Display(Name = "EmployeeExperienceYears", ResourceType = typeof(Localization))]
         public int ExperienceYears { get; set; }
 
         [Required]
+        [StringLength(100)]
         [Display(Name = "EmployeeCurrentPosition", ResourceType = typeof(Localization))]
         public string CurrentPosition { get; set; }
 

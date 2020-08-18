@@ -61,6 +61,15 @@ namespace LocalizationResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string ButtonSubmit {
+            get {
+                return ResourceManager.GetString("ButtonSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to БГ.
         /// </summary>
         public static string CultureBG {
@@ -187,7 +196,7 @@ namespace LocalizationResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New survey.
+        ///   Looks up a localized string similar to Take the survey!.
         /// </summary>
         public static string TitlePageSurveyNew {
             get {
@@ -201,6 +210,15 @@ namespace LocalizationResources {
         public static string TitleWebSite {
             get {
                 return ResourceManager.GetString("TitleWebSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, enter a valid value!.
+        /// </summary>
+        public static string ValidationError {
+            get {
+                return ResourceManager.GetString("ValidationError", resourceCulture);
             }
         }
     }

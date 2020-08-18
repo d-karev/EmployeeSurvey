@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New</h2>
+<h2>@Localization.TitlePageSurveyNew</h2>
 
 @using (Html.BeginForm())
 {
@@ -70,7 +70,7 @@
                             @Html.EnumDropDownListFor(
                                m => m.Survey.SeniorityLevel,
                                Localization.SeniorityLevelDefault,
-                               new { @class = "form-control", @langId = lang.Key })
+                               new { @langId = lang.Key })
                         </div>
                     </th>
                 </tr>
@@ -82,7 +82,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="@Localization.ButtonSubmit" class="btn btn-default" />
         </div>
     </div>
 </div>
