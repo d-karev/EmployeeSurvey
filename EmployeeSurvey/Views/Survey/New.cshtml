@@ -1,0 +1,129 @@
+﻿@model EmployeeSurvey.PresentationData.ViewModels.SurveyNewViewModel
+
+@{
+    ViewBag.Title = Localization.TitlePageSurveyNew;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Survey.NameFirst, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Survey.NameFirst, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Survey.NameFirst, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Survey.NameLast, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Survey.NameLast, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Survey.NameLast, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Survey.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Survey.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Survey.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Survey.ExperienceYears, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Survey.ExperienceYears, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Survey.ExperienceYears, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Survey.CurrentPosition, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Survey.CurrentPosition, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Survey.CurrentPosition, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div>
+        @Html.Label(Localization.LabelProgLanguagePanel)
+        <table id="LangSelector">
+            @foreach (var lang in Model.NomenKnownLanguages)
+            {
+                <tr langId="@lang.Key">
+                    <th>
+                        @Html.CheckBox("ProgLanguage", new { @langId = lang.Key })
+                        @Html.Label(lang.Value)
+                    </th>
+                    <th>
+                        <div id="SenSelector" class="hidden">
+                            @Html.Label(Localization.LabelSeniorityLevel)
+                            @Html.EnumDropDownListFor(
+                               m => m.Survey.SeniorityLevel,
+                               Localization.SeniorityLevelDefault,
+                               new { @class = "form-control", @langId = lang.Key })
+                        </div>
+                    </th>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @Html.HiddenFor(model => model.Survey.KnownLanguagesJson, new { @id = "SelectedLangs" })
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#LangSelector :checkbox").change(checkBoxChanged);
+            $("#LangSelector select").change(updateSelectedLangsJson);
+        });
+
+        function updateSelectedLangsJson() {           
+            var jsonObj = [];
+            $('#SenSelector:not(.hidden) select').each(function () {
+                var comboVal = $(this).find('option:selected').val();
+                if (comboVal != "0") {
+                    var langId = $(this).attr("langId");
+
+                    var item = {}
+                    item["LanguageId"] = langId;
+                    item["SeniorityLevel"] = comboVal;
+                    jsonObj.push(item);
+                }
+            });
+            var jsonString = JSON.stringify(jsonObj);
+            $("#SelectedLangs").val(jsonString);
+        }
+
+        function checkBoxChanged() {
+            var id = $(this).attr("langId");
+            var currentValue = $(this).is(":checked");
+            var selector = '#LangSelector tr[langId="' + id + '"] #SenSelector';
+
+            if (currentValue == true) {
+                $(selector).removeClass("hidden");
+            } else {
+                $(selector).addClass("hidden");
+            }
+
+            updateSelectedLangsJson();
+        }
+    </script>
+}
