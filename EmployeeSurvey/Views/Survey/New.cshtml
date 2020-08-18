@@ -55,18 +55,18 @@
     </div>
 
     <div>
-        @Html.Label(Localization.LabelProgLanguagePanel)
+        @Html.Label(string.Empty, Localization.LabelProgLanguagePanel)
         <table id="LangSelector">
             @foreach (var lang in Model.NomenKnownLanguages)
             {
                 <tr langId="@lang.Key">
                     <th>
                         @Html.CheckBox("ProgLanguage", new { @langId = lang.Key })
-                        @Html.Label(lang.Value)
+                        @Html.Label(string.Empty, lang.Value)
                     </th>
                     <th>
                         <div id="SenSelector" class="hidden">
-                            @Html.Label(Localization.LabelSeniorityLevel)
+                            @Html.Label(string.Empty, Localization.LabelSeniorityLevel)
                             @Html.EnumDropDownListFor(
                                m => m.Survey.SeniorityLevel,
                                Localization.SeniorityLevelDefault,

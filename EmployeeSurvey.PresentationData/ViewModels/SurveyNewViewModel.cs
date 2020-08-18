@@ -46,12 +46,14 @@ namespace EmployeeSurvey.PresentationData.ViewModels
 
         public string KnownLanguagesJson { get; set; }
 
+        /*
         public List<KnownLanguage> KnownLanguages { get; set; }
 
         public EmployeeSurvey()
         {
             KnownLanguages = new List<KnownLanguage>();
         }
+        */
     }
 
     public class KnownLanguage
