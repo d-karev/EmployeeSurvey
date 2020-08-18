@@ -21,7 +21,9 @@ namespace EmployeeSurvey.Controllers
         [HttpPost]
         public ActionResult New(SurveyNewViewModel model)
         {
-            
+            if (EmployeeSurveyService.IsNewEmployeeValid(model.Survey) == EmployeeSurveyService.EmployeeValidityCheckResult.Ok)
+                EmployeeSurveyService.PersistNewEmployeeSurvey(model.Survey);
+
             return RedirectToAction("New");
         }
     }

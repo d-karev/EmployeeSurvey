@@ -20,5 +20,17 @@ namespace EmployeeSurvey.Service
 
             return resultList;
         }
+
+        internal static ProgrammingLanguage GetProgrammingLanguage(int id)
+        {
+            ProgrammingLanguage result = null;
+
+            using (var db = new EmployeeSurveyModelContainer())
+            {
+                result = db.ProgrammingLanguageSet.Where(l => l.Id == id).FirstOrDefault();
+            }
+
+            return result;
+        }
     }
 }
